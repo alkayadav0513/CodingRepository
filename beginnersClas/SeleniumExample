@@ -1,0 +1,61 @@
+
+static ChromeDriver driver;
+public class BBC{
+
+public static void main(String[]args){
+
+	driver = new ChromeDriver();
+	String xpathValue = "//*[@id="main-content"]/article/section[10]/div/div/div[1]/div[1]";
+	driver.maximize();
+	driver.get("https://www.bbc.com/");
+	WebElement w1 = driver.findElement(By.xpath(xpathValue)); //Addres of the  TECH
+	List<WebElements> l1 = w1.findElements(By.tag("a"));
+	System.of.println(l1.size()); //Number of links in the area - 4
+
+	String part1 = "//*[@id="main-content"]/article/section[10]/div/div/div[1]/div[1]/div[2]/div[";
+	String part2 = "]/div/a";
+	//First link xpath = //*[@id="main-content"]/article/section[10]/div/div/div[1]/div[1]/div[2]/div[1]/div/a
+	//Second Link        //*[@id="main-content"]/article/section[10]/div/div/div[1]/div[1]/div[2]/div[2]/div/a
+	//Third Link         //*[@id="main-content"]/article/section[10]/div/div/div[1]/div[1]/div[2]/div[3]/div/a
+	//Fourth Link        //*[@id="main-content"]/article/section[10]/div/div/div[1]/div[1]/div[2]/div[4]/div/a
+
+	//IF the links are 4 in the TECH area
+	for(int val = 1; val<=4, val++ ){
+	
+		driver.findElement(By.xpath(part1+val+part2).click();
+		driver.getTitle();
+		driver.get("https://www.bbc.com/");
+
+	}
+
+	//If the number of links in the Tech area is varying
+	int vl = 1;
+	while(isLinkPresent(part1+vl+part2)){
+		driver.findElement(By.xpath(part1+vl+part2).click();
+		driver.getTitle();
+		driver.get("https://www.bbc.com/");
+		vl++;
+
+	}
+
+
+}
+
+public static Boolean isLinkPresent(String locator){
+
+	//If val is 0 - element not present
+	//if the val is not zero, element is present;
+
+	int val = driver.findElements(By.xpath(locator)).size();
+	if(val !=0){
+		System.of.println("ELement is present");
+		return true;
+
+	}else{
+		System.of.println("ELement is not present");
+		return false;
+
+	}
+
+
+}
