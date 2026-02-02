@@ -1,25 +1,26 @@
 package String;
+
 import java.util.*;
+
+//Remove duplicate characters from a string
 public class RemoveDuplicateChars {
-	public static void main(String args[]) {
-		Scanner sc= new Scanner(System.in);
-		String input=sc.nextLine();
-		String result=removeDuplicateChar(input);
-		System.out.println("The string after removing duplicate chars is:"+result);
-		
-	}
-	public static String removeDuplicateChar(String word)
+	public static void main(String args[])
 	{
-		Set<Character> set1=new HashSet<>();
-		StringBuilder result=new StringBuilder();
-		for(char ch:word.toCharArray())
+		Scanner sc = new Scanner(System.in);
+		String input=sc.nextLine();
+		System.out.println("The entered input is:"+input);
+		HashSet<Character> set=new HashSet<>();
+		StringBuilder sb = new StringBuilder();
+		for(char ch:input.toCharArray())
 		{
-			if(set1.add(ch))
+			if(!set.contains(ch))
 			{
-				result.append(ch);
+				set.add(ch);
+				sb.append(ch);
 			}
+			
 		}
-		return result.toString();
+		System.out.println(sb.toString());
 	}
 
 }

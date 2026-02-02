@@ -1,21 +1,24 @@
 package String;
-import java.util.*;
+
+import java.util.Scanner;
+
 public class PalindromeString {
 	public static void main(String args[])
 	{
 		Scanner sc= new Scanner(System.in);
-		String input= sc.nextLine();
-		System.out.println("Entered word is: "+input);
-		String word=new StringBuilder(input).reverse().toString();
-		
-		if(input.equals(word))
+		String input=sc.nextLine().toLowerCase();
+		System.out.println("The entered input is:"+input);
+		String reversed=new StringBuilder(input).reverse().toString();
+		System.out.println("The reversed word is:"+reversed);
+		if(input.equals(reversed))
 		{
-			System.out.print("This is a plaindrome string");
+			System.out.println("String are palindrome");
 		}
 		else
 		{
-			System.out.print("This is not a plaindrome string");
+			System.out.println("String are not palindrome");
 		}
-}
+		
+	}
 
 }
